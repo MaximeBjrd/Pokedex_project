@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { CONSTANTS } from "../../constants/app-constants";
 import { useEffect, useState } from "react";
-import { getPokemonById } from "../../api/pokedex-api";
+import { getPokemonById, updatePokemonLikes } from "../../api/pokedex-api";
 
 export function DetailPage() {
     const { id } = useParams();
@@ -27,6 +27,16 @@ export function DetailPage() {
         }
     }
 
+    async function handleLike() {
+        const updatedPokemon = {
+            ...currentPokemon,
+            like: currentPokemon.like + 1
+        }
+
+        await updatePokemonLikes(id, updatedPokemon);
+        setCurrentPokemon(updatedPokemon);
+    }
+
     if(loading) {
         return <p>Loading...</p>
     }
@@ -40,6 +50,7 @@ export function DetailPage() {
 
             <div>
                 <img src={`${CONSTANTS.POKEMON_IMAGE_BASE_URL}/${currentPokemon.id}.svg`} alt={currentPokemon.name}/>
+                
                 <h2>{currentPokemon.name}</h2>
                 <p>{currentPokemon.types.join(", ")}</p>
                 <ul>
@@ -47,6 +58,8 @@ export function DetailPage() {
                         <li key={statName}> {statName}: {value} </li>
                     ))}
                 </ul>
+
+                <button onClick={handleLike}>Likes: {currentPokemon.like}</button>
             </div>
         </div>
     </>

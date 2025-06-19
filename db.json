@@ -2,7 +2,7 @@
   "pokemons": [
     {
       "id": "1",
-      "like": 11,
+      "like": 16,
       "name": "Bulbizarre",
       "types": [
         "Grass",

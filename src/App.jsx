@@ -6,7 +6,6 @@ import { NotFoundPage } from "./pages/NotFound/NotFound"
 import { ROUTES } from "./config/routes"
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
