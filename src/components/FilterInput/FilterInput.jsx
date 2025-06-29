@@ -1,5 +1,6 @@
-import { useState } from "react";
 import style from "./FilterInput.module.css";
+
+import { useState } from "react";
 
 /*
     Input allowing to filter the pokemon list by name or type.
@@ -19,6 +20,7 @@ export function FilterInput({onFilter}) {
             placeholder="Filter the Pokemon list by name or type" 
             value={search}
             onChange={handleChange}
+            className={style.input}
         />
     </>
 }
