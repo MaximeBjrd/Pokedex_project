@@ -1,6 +1,38 @@
+.card * {
+    margin: 0;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.card img {
+    max-height: 80px;
+    max-width: 80px;
+    object-fit: contain;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .types {
     display: flex;
     gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .type {

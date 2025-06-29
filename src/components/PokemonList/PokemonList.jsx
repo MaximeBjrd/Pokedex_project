@@ -12,7 +12,7 @@ export function PokemonList({filteredPokemons, searchTerm}) {
     }
 
     return <>
-        <div>
+        <div className={style.list}>
             {filteredPokemons.map((pokemon) => (
                 <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`} className={style.link}>
                     <PokemonListItem pokemon={pokemon} types={pokemon.types} />

@@ -9,16 +9,18 @@ import { getTypeColor } from "../../../api/pokedex-api";
 */
 export function PokemonListItem({ pokemon, types }) {
     return <>
-        <img src={`${CONSTANTS.POKEMON_IMAGE_BASE_URL}/${pokemon.id}.svg`} alt={pokemon.name} />
+        <div className={style.card}>
+            <img src={`${CONSTANTS.POKEMON_IMAGE_BASE_URL}/${pokemon.id}.svg`} alt={pokemon.name} />
 
-        <h2>#{pokemon.id} {pokemon.name}</h2>
+            <p className={style.name}>#{pokemon.id} {pokemon.name}</p>
 
-        <div className={style.types}>
-            {types.map((type) => (
-                <span key={type} className={style.type} style={{backgroundColor: getTypeColor(type)}}>
-                    {type}
-                </span>
-            ))}
+            <div className={style.types}>
+                {types.map((type) => (
+                    <span key={type} className={style.type} style={{backgroundColor: getTypeColor(type)}}>
+                        {type}
+                    </span>
+                ))}
+            </div>
         </div>
     </>
 }
