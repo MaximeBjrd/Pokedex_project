@@ -1,0 +1,30 @@
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.statRow {
+    display: grid;
+    grid-template-columns: 110px 20px 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.statInfo {
+    font-weight: bold;
+}
+
+.statBar {
+    height: 15px;
+    width: 300px;
+    background-color: #e0e0e0;
+    border: solid 1px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.statBarFill {
+    background-color: rgb(102, 203, 102);
+    height: 100%;
+    border-radius: 8px;
+}
