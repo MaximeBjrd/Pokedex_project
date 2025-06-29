@@ -7,6 +7,7 @@ import { getPokemonById, updatePokemonLikes } from "../../api/pokedex-api";
 
 import { Reviews } from "../../components/Reviews/Reviews";
 import { PokemonStats } from "../../components/PokemonStats/PokemonStats";
+import { PokemonTypes } from "../../components/PokemonTypes/PokemonTypes";
 
 export function DetailPage() {
     const { id } = useParams();
@@ -57,7 +58,7 @@ export function DetailPage() {
                 <img src={`${CONSTANTS.POKEMON_IMAGE_BASE_URL}/${currentPokemon.id}.svg`} alt={currentPokemon.name}/>
                 
                 <h2>{currentPokemon.name}</h2>
-                <p>{currentPokemon.types.join(", ")}</p>
+                <PokemonTypes types={currentPokemon.types} />
 
                 <PokemonStats base={currentPokemon.base}/>
 

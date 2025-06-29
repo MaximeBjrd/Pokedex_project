@@ -1,3 +1,5 @@
+import style from "./PokemonList.module.css";
+
 import { PokemonListItem } from "./PokemonListItem/PokemonListItem";
 import { Link } from "react-router";
 
@@ -12,8 +14,8 @@ export function PokemonList({filteredPokemons, searchTerm}) {
     return <>
         <div>
             {filteredPokemons.map((pokemon) => (
-                <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
-                    <PokemonListItem pokemon={pokemon} />
+                <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`} className={style.link}>
+                    <PokemonListItem pokemon={pokemon} types={pokemon.types} />
                 </Link>
             ))}
         </div>

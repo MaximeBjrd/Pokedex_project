@@ -1,3 +1,5 @@
+import { PKMN_TYPES } from "../constants/app-constants";
+
 export async function getPokemonList() {
     try {
         const res = await fetch(import.meta.env.VITE_LOAD_POKEMONS);
@@ -69,4 +71,9 @@ export async function postReview(review) {
         console.error(e);
         return null;
     }
+}
+
+export function getTypeColor (typeName) {
+    const match = PKMN_TYPES.find(t => t.name.toLowerCase() === typeName.toLowerCase());
+    return match ? match.color : "#ccc";
 }
