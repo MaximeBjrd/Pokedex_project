@@ -1,6 +1,11 @@
+import style from "./Reviews.module.css";
+
 import { useState, useEffect } from "react";
 import { loadReviewsById, postReview } from "../../api/pokedex-api";
 
+/*
+    Review section allowing to post a review and displays the reviews of each pokemon.
+*/
 export function Reviews({pokemonId}) {
     const [reviews, setReviews] = useState([]);
     const [author, setAuthor] = useState("Me");
@@ -52,16 +57,17 @@ export function Reviews({pokemonId}) {
                         handleSubmit(e);
                     }
                 }}
+                className={style.input}
             />
         </form>
 
         {reviews.length === 0 
             ? (<p>This Pokemon has no review yet. Post the first one !</p>) 
-            : (<ul>
+            : (<ul className={style.reviewsList}>
                 {reviews.map((review) => (
-                    <li key={review.id}> 
-                        <p>{review.content}</p>
-                        <p>Posted by : {review.author}</p>
+                    <li key={review.id} className={style.review}> 
+                        <p className={style.content}>{review.content}</p>
+                        <p className={style.author}>Posted by : {review.author}</p>
                     </li>
                 ))}
             </ul>)

@@ -1,0 +1,30 @@
+.input {
+    border-radius: 16px;
+    border: 1px solid;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.reviewsList {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review {
+    border-radius: 8px;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 10px;
+    width: 100%;
+    list-style: none;
+}
+
+.content {
+    margin: 0 0 10px 0;
+}
+
+.author {
+    margin: 0;
+    font-weight: bold;
+}

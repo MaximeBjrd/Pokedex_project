@@ -1,3 +1,5 @@
+import style from "./Detail.module.css";
+
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 
@@ -15,6 +17,8 @@ export function DetailPage() {
     const currentId = parseInt(id);
     const [currentPokemon, setCurrentPokemon] = useState(null);
     const [loading, setLoading] = useState(true);
+    const isFirst = currentId === 1;
+    const isLast = currentId === 151;
 
     useEffect(() => {
         fetchPokemon();
@@ -49,24 +53,35 @@ export function DetailPage() {
 
     return <>
         <div>
-            <div>
-                {(currentId > 1) && (<button onClick={() => navigate(`/pokemon/${currentId - 1}`)}>Previous</button>)}
-                {(currentId < 151) && (<button onClick={() => navigate(`/pokemon/${currentId + 1}`)}>Next</button>)}
+            <div className={style.navButtons}>
+                <button disabled={isFirst} onClick={() => navigate(`/pokemon/${currentId - 1}`)}>
+                    Previous
+                </button>
+                <button disabled={isLast} onClick={() => navigate(`/pokemon/${currentId + 1}`)}>
+                    Next
+                </button>
             </div>
 
-            <div>
-                <img src={`${CONSTANTS.POKEMON_IMAGE_BASE_URL}/${currentPokemon.id}.svg`} alt={currentPokemon.name}/>
-                
-                <h2>{currentPokemon.name}</h2>
-                <PokemonTypes types={currentPokemon.types} />
+            <div className={style.details}>
+                <div className={style.image}>
+                    <img src={`${CONSTANTS.POKEMON_IMAGE_BASE_URL}/${currentPokemon.id}.svg`} alt={currentPokemon.name}/>
+                </div>
 
-                <PokemonStats base={currentPokemon.base}/>
+                <div className={style.infos}>
+                    <h2 className={style.name}>{currentPokemon.name}</h2>
 
-                <button onClick={handleLike}>Likes: {currentPokemon.like}</button>
-            </div>
+                    <button onClick={handleLike} className={style.likeButton}>
+                        ❤️ {currentPokemon.like}
+                    </button>
 
-            <div>
-                <Reviews pokemonId={id}/>
+                    <PokemonTypes types={currentPokemon.types} />
+
+                    <PokemonStats base={currentPokemon.base}/>
+                </div>
+
+                <div className={style.reviews}>
+                    <Reviews pokemonId={id}/>
+                </div>
             </div>
         </div>
     </>
