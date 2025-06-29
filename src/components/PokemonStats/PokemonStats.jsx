@@ -11,7 +11,9 @@ const STAT_NAMES = {
     "Speed": "speed"
 };
 
-
+/*
+    Displays the pokemon stats with a progress bar.
+*/
 export function PokemonStats({ base }) {
     return <div className={style.statsContainer}>
         {Object.entries(base).map(([label, value]) => {
