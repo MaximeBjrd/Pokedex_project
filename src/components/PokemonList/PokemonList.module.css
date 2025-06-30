@@ -11,3 +11,7 @@
     text-decoration: none;
     color: inherit;
 }
+
+.noResult {
+    text-align: center;
+}

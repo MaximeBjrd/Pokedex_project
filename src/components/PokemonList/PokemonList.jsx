@@ -8,7 +8,7 @@ import { Link } from "react-router";
 */
 export function PokemonList({filteredPokemons, searchTerm}) {
     if(filteredPokemons.length === 0) {
-        return <p>Aucun résultat pour la recherche: "{searchTerm}"</p>
+        return <p className={style.noResult}>Aucun résultat pour la recherche: "{searchTerm}"</p>
     }
 
     return <>

@@ -30,10 +30,8 @@ export function Reviews({pokemonId}) {
                 pokemonId: pokemonId
             };
             const response = await postReview(newReview);
-            console.log("Posted review: ", response);
             setContent("");
             const updated = await loadReviewsById(pokemonId);
-            console.log("Reviews loaded : ", updated);
             setReviews(updated);
         }
         catch(e) {
